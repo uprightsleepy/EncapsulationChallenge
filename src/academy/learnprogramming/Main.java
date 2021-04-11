@@ -3,7 +3,7 @@ package academy.learnprogramming;
 public class Main {
 
     public static void main(String[] args) {
-        Printer printer = new Printer(0,0,false);
+        Printer printer = new Printer(0,0,true);
 
         System.out.println("Toner Level Testing ...");
         System.out.println("Toner level: " + printer.getTonerLevel());
@@ -22,8 +22,5 @@ public class Main {
         printer.printPage(10);
         printer.printPage(-1);
         printer.printPage(5);
-
-        printer.isDuplex();
-
     }
 }

@@ -47,18 +47,28 @@ public class Printer {
     }
 
     public void printPage(int amount){
-        if((this.totalPagesPrinted + amount) < 0){
-            System.out.println("No pages were printed.");
-        }
-        else if(amount < 0){
-            System.out.println("Invalid amount.");
-            System.out.println("Total pages printed: " + this.totalPagesPrinted);
+        if(!this.duplex) {
+            if ((this.totalPagesPrinted + amount) < 0) {
+                System.out.println("No pages were printed.");
+            } else if (amount < 0) {
+                System.out.println("Invalid amount.");
+                System.out.println("Total pages printed: " + this.totalPagesPrinted);
+            } else {
+                this.totalPagesPrinted = this.totalPagesPrinted + amount;
+                System.out.println("Number of pages printed: " + amount);
+                System.out.println("Total pages printed: " + this.totalPagesPrinted);
+            }
         }
         else{
-            this.totalPagesPrinted = this.totalPagesPrinted + amount;
-            System.out.println("Number of pages printed: " + amount);
-            System.out.println("Total pages printed: " + this.totalPagesPrinted);
+            if ((this.totalPagesPrinted + amount) < 0) {
+                System.out.println("No pages were printed.");
+            } else if (amount < 0) {
+                System.out.println("Invalid amount.");
+                System.out.println("Total pages printed: " + this.totalPagesPrinted);
+            } else {
+                this.totalPagesPrinted = this.totalPagesPrinted+ ((amount / 2) + (amount % 2));
+                System.out.println("Printed in Duplex mode: " + this.totalPagesPrinted);
+            }
         }
-
     }
 }
